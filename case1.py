@@ -18,10 +18,11 @@ class tc_register_with_invaild_key(RHSMGuiBase):
         try:
             try:
                 self.open_subscription_manager()
-                self.check_checkbox("register-dialog-6", "firstboot-activationkey-checkbox")
+                self.click_register_button()
+                self.check_checkbox("register-dialog", "firstboot-activationkey-checkbox")
                 self.click_dialog_next_button()
-                self.input_text('main-window', 'firstboot-organization-entry-text', 'ACME_Corporation')
-                self.input_text('main-window', 'firstboot-activation-key-text', 'wrong')
+                self.input_text('register-dialog', 'firstboot-organization-entry-text', 'ACME_Corporation')
+                self.input_text('register-dialog', 'firstboot-activation-key-text', 'wrong')
                 self.click_dialog_register_button()
                 self.check_window_exist('error-dialog')
                 self.assert_(True, case_name)

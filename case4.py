@@ -18,11 +18,9 @@ class tc_jump_to_correct_windwo(RHSMGuiBase):
             try:
                 self.open_subscription_manager()
                 self.click_register_button()
-                self.check_checkbox("main-window", "firstboot-activationkey-checkbox")
+                self.check_checkbox("register-dialog", "firstboot-activationkey-checkbox")
                 self.click_dialog_next_button()
-                self.click_button("main-window","btndefaultbutton")
-                self.click_dialog_next_button()
-                self.check_elemnet_enbale("main-window",txt,"txtinputkey")
+                self.check_elemnet_enbale("register",txt,"txtinputkey")
                 self.assert_(True, case_name)
             except Exception, e:
                 logger.error("Test Failed - ERROR Message:" + str(e))
